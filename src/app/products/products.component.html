@@ -1,0 +1,46 @@
+<ActionBar title="List of my product"></ActionBar>
+
+<ScrollView>
+  <GridLayout>
+    <StackLayout class="wrap">
+      <StackLayout class="products-cont">
+        <Image [src]="productTitle" class="title"></Image>
+        <StackLayout
+          *ngFor="let product of productList"
+          class="productContainer"
+          style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+        >
+          <Image
+            [src]="
+              product.attributes.productimage.data.attributes.formats.medium.url
+            "
+            class="productImage"
+            style="max-width: 100px; height: auto; margin-bottom: 10px;"
+          ></Image>
+          <label
+            [text]="product.attributes.productname"
+            class="h1"
+            style="font-size: 18px; margin-bottom: 5px;"
+          ></label>
+          <label
+            [text]="product.attributes.productdescription"
+            textWrap="true"
+            style="margin-bottom: 10px;"
+          ></label>
+          <label
+            [text]="'$' + product.attributes.price"
+            class="productPrice"
+            style="font-size: 16px;"
+          ></label>
+        </StackLayout>
+
+        <label
+          horizontalAlignment="center"
+          verticalAlignment="center"
+          class="copy"
+          text="© 2023 Vibe Spectrum All right reserved"
+        ></label>
+      </StackLayout>
+    </StackLayout>
+  </GridLayout>
+</ScrollView>
